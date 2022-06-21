@@ -22,10 +22,13 @@ function makeGrids(rowNum, colNum){
         container.appendChild(row);
     }
     let rows = document.getElementsByClassName('row');
+    let width = container.clientWidth / (rowNum + 1);
     for(let i = 0; i < rowNum; i++){
         for(let j = 0; j < colNum; j++){
             let grid = document.createElement('div');
             grid.className = 'grid';
+	    grid.style.width = `${width}px`;
+	    grid.style.height = `${width}px`;
             rows[i].appendChild(grid);
         }
     }
@@ -57,6 +60,8 @@ body.appendChild(button1);
 
 const container = document.createElement('container');
 container.id = 'container';
+container.style.width = '960px';
+container.style.height = '960px';
 body.appendChild(container);
 makeGrids(16, 16);
 button.addEventListener('click', function(){
